@@ -19,6 +19,14 @@ USgas_split <- ts_split(ts_data, sample.out = 12)
 USgas_split
 train <- USgas_split$train
 test <- USgas_split$test
+
+
+#test for differentiating
+normal_diff<-ndiffs(train)
+normal_diff
+seas_diff<-nsdiffs(train)
+seas_diff
+
 par(mfrow=c(1,1))
 plot(diff(train),main="Natural Gas Consumption in the US after the first differencing")
 arima(train, order = c(1,0,0))
